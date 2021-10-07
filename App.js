@@ -9,6 +9,7 @@ import { createAppContainer } from "react-navigation";
 import ListView from "./ListView";
 import Accessibility from "./Accessibility";
 import Fetchfile from "./Fetchfile"; 
+import AnimationScreen from "./AnimationScreen";
 
 // const Stack = createNativeStackNavigator();
 
@@ -44,6 +45,12 @@ class HomeScreen extends React.Component {
             onPress={() => this.props.navigation.navigate("Accessibility")}
           />
         </View>
+        <View style={styles.buttonclick}>
+          <Button
+            title="Go to AnimationScreen"
+            onPress={() => this.props.navigation.navigate("AnimationScreen")}
+          />
+        </View>
       </View>
     );
   }
@@ -55,7 +62,8 @@ const AppNavigator = createStackNavigator(
     FlatListBasics: FlatListBasics,
     ListView: ListView,
     Accessibility: Accessibility,
-    Fetchfile: Fetchfile
+    Fetchfile: Fetchfile,
+    AnimationScreen: AnimationScreen
   },
   {
     initialRouteName: "Home",
@@ -63,6 +71,7 @@ const AppNavigator = createStackNavigator(
 );
 
 const AppContainer = createAppContainer(AppNavigator);
+
 export default class App extends React.Component {
   render() {
     return <AppContainer />;
